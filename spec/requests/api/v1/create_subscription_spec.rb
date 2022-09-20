@@ -11,7 +11,7 @@ RSpec.describe 'Subscription request' do
         customer_id: Customer.first.id,
         tea_id: Tea.first.id
       }
-      post 'api/v1/customers', params: new_sub
+      post '/api/v1/subscriptions', params: new_sub
       expect(response).to be_successful
       require "pry"; binding.pry
     end
