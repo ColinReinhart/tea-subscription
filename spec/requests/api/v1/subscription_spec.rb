@@ -11,7 +11,7 @@ RSpec.describe 'Subscription request' do
       @tea_3 = Tea.create!(title: Faker::Tea.variety, description: Faker::ChuckNorris.fact, temperature: Faker::Number.between(from: 190, to: 220), brew_time: Faker::Number.between(from: 8, to: 16))
       @tea_3 = Tea.create!(title: Faker::Tea.variety, description: Faker::ChuckNorris.fact, temperature: Faker::Number.between(from: 190, to: 220), brew_time: Faker::Number.between(from: 8, to: 16))
 
-      @sub_1 = Subscription.create!(title: "#{@customer_1.first_name}'s Sub", price: Faker::Number.between(from: 20, to: 50), status: "active", customer: @customer_1, tea: @tea_1)
+      @sub_1 = Subscription.create!(title: "#{@customer_1.first_name}'s Sub", price: Faker::Number.between(from: 20, to: 50), status: "active", frequency: "weekly", customer: @customer_1, tea: @tea_1)
     end
 
     it "creates a new subscription for a customer" do
@@ -20,6 +20,7 @@ RSpec.describe 'Subscription request' do
         title: "New Sub",
         price: 2000,
         status: "active",
+        frequency: "monthly",
         customer_id: @customer_2.id,
         tea_id: @tea_3.id
       }

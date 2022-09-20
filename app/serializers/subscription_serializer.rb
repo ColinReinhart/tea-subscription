@@ -5,6 +5,7 @@ class SubscriptionSerializer
   attributes  :title,
               :price,
               :status,
+              :frequency,
               :customer_id,
               :tea_id
 
