@@ -40,5 +40,12 @@ RSpec.describe 'Subscription request' do
 
       expect sub_count + 1 == Subscription.all.count
     end
+
+    it "can change status to canceled" do
+      delete "/api/v1/subscriptions/#{@sub_1.id}"
+
+      body = JSON.parse(response.body, symbolize_names: true)
+      expect(body[:data][:attributes][:status]).to eq("canceled")
+    end
   end
 end
