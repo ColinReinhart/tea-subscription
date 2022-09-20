@@ -15,6 +15,11 @@ class Api::V1::SubscriptionsController < ApplicationController
     render json: SubscriptionSerializer.new(sub), status: :accepted
   end
 
+  def index
+    subs = Subscription.where(customer_id: params[:customer_id])
+    render json: SubscriptionSerializer.new(subs), status: :accepted
+  end
+
   private
     def sub_params
       params.permit(:title, :price, :status, :frequency, :customer_id, :tea_id)
