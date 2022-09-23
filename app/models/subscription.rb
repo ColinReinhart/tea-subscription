@@ -5,4 +5,8 @@ class Subscription < ApplicationRecord
   validates_presence_of(:title)
   validates_presence_of(:price)
   validates_presence_of(:status)
+
+  def cancel
+    self.status = "canceled"
+  end
 end

@@ -44,7 +44,7 @@ RSpec.describe 'Subscription request' do
     end
 
     it "can change status to canceled" do
-      delete "/api/v1/subscriptions/#{@sub_1.id}"
+      patch "/api/v1/subscriptions/#{@sub_1.id}"
 
       body = JSON.parse(response.body, symbolize_names: true)
       expect(body[:data][:attributes][:status]).to eq("canceled")
